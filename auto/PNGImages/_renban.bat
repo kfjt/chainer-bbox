@@ -13,6 +13,7 @@ if not defined _xstart set _xstart=1
 set _xend=%3
 if not defined _xend set _xend=250
 
+if not exist %_xtarget% mkdir %_xtarget%
 for /l %%a in (%_xstart%, 1, %_xend%) do call :_copy %%a
 
 endlocal
