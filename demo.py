@@ -37,6 +37,12 @@ def main():
     bboxes, labels, scores = model.predict([img])
     bbox, label, score = bboxes[0], labels[0], scores[0]
 
+    names = []
+    for item in label:
+      names.append(via_bbox_label_names[item])
+    cnt = {name:names.count(name) for name in names}
+    print(cnt)
+
     vis_bbox(
         img, bbox, label, score, label_names=via_bbox_label_names)
     plot.show()
